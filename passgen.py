@@ -19,8 +19,8 @@
 ######################################################################
 
 # Uses: Example below
-# python3 /path/passgen.py 20    # for full QWERTY
-# python3 /path/passgen.py 20 -c # for common QWERTY
+# python3 /path/passgen.py -f 20    # for full QWERTY
+# python3 /path/passgen.py -c 20    # for common QWERTY
 # Tested with: Ubuntu, Arch Linux, and Windows 10
 # For 'best practice' guidelines search 'digital identity' via nist.gov/publications
 
@@ -30,23 +30,22 @@ from io import StringIO
 ### vfile = a 'virtual file'
 vfile = StringIO()
 
-### Default to Full QWERTY characters
-commchar = 0
-
 ### Parse user arguments
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "hc", ["help", "common"])
+    opts, args = getopt.getopt(sys.argv[1:], "cfh", ["common", "full", "help"])
 except getopt.GetoptError as err:
     err = "\n\nInvalid command.  Use --help for valid commands.\n\n"
     print(err)
     usage()
     sys.exit(2)
 for o, a in opts:
-    if o in ("-h", "--help"):
+    if o in ("-c", "--common"):
+        commchar = 'y'
+    elif o in ("-f", "--full"):
+        commchar = 'n'
+    elif o in ("-h", "--help"):
         print("\npassgen: Quasi secure password generator\n    Usage: -hc, --help, --common, --full\n        -h, --help      Prints this message\n        -c, --common    Use only common QWERTY password characters\n\nExamples:\n    python3 /path/passgen.py 20\n    python3 /path/passgen.py 20 -c\n")
         sys.exit()
-    elif o in ("-c", "--common"):
-        commchar = 1
     else:
         assert False, "unhandled option"
 
@@ -58,10 +57,10 @@ passchars = [ '~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '
 ## Array: 1234567890-=qwertyuiopasdfghjklzxcvbnm./!@#$%*()_QWERTYUIOPASDFGJKLZXCVBNM? (75)
 passchars2 = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '/', '!', '@', '#', '$', '%', '*', '(', ')', '_', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '?' ]
 
-charnum = (sys.argv[1])
+charnum = (sys.argv[2])
 charnum1 = int(charnum)
 
-if commchar == 1:
+if commchar == 'y':
     passchars = passchars2
 
 # Shuffle the array a few times
@@ -72,9 +71,9 @@ random.shuffle(passchars)
 # Write to vfile and print to stdout
 for x in range(1, int(charnum1)):
     for y in range(1):
-        if commchar == int(1):
+        if commchar == 'y':
             rannum = random.randint(0,74)
-        elif commchar == int(0):
+        elif commchar == 'n':
             rannum = random.randint(0,91)
     vfile.write(passchars[rannum])
 readout = vfile.getvalue()
@@ -84,5 +83,6 @@ print(readout)
 readout = vfile.write(' ')
 vfile.close()
 passchars = [ ' ' ]
+passchars2 = [ ' ' ]
 charnum = 1
 charnum2 = 1
