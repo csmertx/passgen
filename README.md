@@ -1,10 +1,10 @@
 # passgen
 Quasi secure password generator
 
-![Screencast](placeholder.gif)
+![Screencast](screencast.gif)
 
 ## How to do the thing
-Print a 20 character password to stdout: 
+Print a 20 character password to stdout:
 
 `python3 passgen -f 20`
 

@@ -18,9 +18,10 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ######################################################################
 
-# Uses: Example below
-# python3 /path/passgen.py -f 20    # for full QWERTY
-# python3 /path/passgen.py -c 20    # for common QWERTY
+# Usage:
+# python3 /path/passgen.py -f 20    # for full US QWERTY
+# python3 /path/passgen.py -c 20    # for common US QWERTY
+
 # Tested with: Ubuntu, Arch Linux, and Windows 10
 # For 'best practice' guidelines search 'digital identity' via nist.gov/publications
 
@@ -44,17 +45,17 @@ for o, a in opts:
     elif o in ("-f", "--full"):
         commchar = 'n'
     elif o in ("-h", "--help"):
-        print("\npassgen: Quasi secure password generator\n    Usage: -hc, --help, --common, --full\n        -h, --help      Prints this message\n        -c, --common    Use only common QWERTY password characters\n\nExamples:\n    python3 /path/passgen.py 20\n    python3 /path/passgen.py 20 -c\n")
+        print("\npassgen: Quasi secure password generator\n    Usage: -hcf, --help, --common, --full\n    -h, --help      Prints this message\n    -c, --common    Use only common US QWERTY password characters\n    -f, --full      Use full set of US QWERTY password characters\n\nExamples:\n    python3 /path/passgen.py -f 20\n    python3 /path/passgen.py -c 20\n")
         sys.exit()
     else:
         assert False, "unhandled option"
 
-### Full QWERTY
-## Array: ~1234567890-=qwertyuiop[]asdfghjkl;zxcvbnm,./`!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>? (92)
+### Full US QWERTY
+## Array: ~1234567890-=qwertyuiop[]asdfghjkl;zxcvbnm,./`!@#$%^&*()_+US QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>? (92)
 passchars = [ '~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'J', ',', 'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?' ]
 
-### Common QWERTY
-## Array: 1234567890-=qwertyuiopasdfghjklzxcvbnm./!@#$%*()_QWERTYUIOPASDFGJKLZXCVBNM? (75)
+### Common US QWERTY
+## Array: 1234567890-=qwertyuiopasdfghjklzxcvbnm./!@#$%*()_US QWERTYUIOPASDFGJKLZXCVBNM? (75)
 passchars2 = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '.', '/', '!', '@', '#', '$', '%', '*', '(', ')', '_', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '?' ]
 
 charnum = (sys.argv[2])
