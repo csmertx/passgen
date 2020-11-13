@@ -86,4 +86,4 @@ vfile.close()
 passchars = [ ' ' ]
 passchars2 = [ ' ' ]
 charnum = 1
-charnum2 = 1
+charnum1 = 1
