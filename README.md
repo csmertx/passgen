@@ -11,4 +11,7 @@ Print a 20 character password to stdout:
 
 Print a 20 character password to stdout (special chars: -=./!@#$%*()_?):
 
-`python3 passgen -c 20`
+```python3 passgen -c 20```
+
+
+**@hup: System was named after the character Hup from The Dark Crystal: Age of Resistance**
