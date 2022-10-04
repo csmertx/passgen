@@ -1,5 +1,5 @@
 # passgen
-Quasi secure password generator
+Mostly harmless password generator
 
 ![Screencast](screencast.gif)
 
