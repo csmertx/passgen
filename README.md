@@ -1,7 +1,7 @@
 # passgen
 Password creator that shuffles the choosen array multiple times before each randomly generated character.
 
-![Screencast](screencast.gif)
+[passgen-2023-04-27_14.18.59.webm](https://user-images.githubusercontent.com/18563995/234960869-7af554c7-1177-41e3-a373-4d60f426a4d6.webm)
 
 ## How to do the thing
 Print a 20 character password with full array of QWERTY characters
