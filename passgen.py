@@ -45,7 +45,7 @@ for o, a in opts:
     elif o in ("-f", "--full"):
         commchar = 'n'
     elif o in ("-h", "--help"):
-        print("\npassgen: Quasi secure password generator\n    Usage: -hcf, --help, --common, --full\n    -h, --help      Prints this message\n    -c, --common    Use only common US QWERTY password characters\n    -f, --full      Use full set of US QWERTY password characters\n\nExamples:\n    python3 /path/passgen.py -f 20\n    python3 /path/passgen.py -c 20\n")
+        print("\npassgen: Relatively secure password generator\n    Usage: -hcf, --help, --common, --full\n    -h, --help      Prints this message\n    -c, --common    Use only common US QWERTY password characters\n    -f, --full      Use full set of US QWERTY password characters\n\nExamples:\n    python3 /path/passgen.py -f 20\n    python3 /path/passgen.py -c 20\n")
         sys.exit()
     else:
         assert False, "unhandled option"
