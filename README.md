@@ -1,6 +1,8 @@
 # passgen
 
-Password creator that shuffles array several times before generating characters.
+Password creator that shuffles array several times before quickly generating characters.
+
+[![asciicast](https://asciinema.org/a/650733.svg)](https://asciinema.org/a/650733)
 
 ## Examples
 
