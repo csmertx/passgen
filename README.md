@@ -1,8 +1,10 @@
 # passgen
 
-Password creator that shuffles array several times before quickly generating characters.
+Generate 10K+ characters per second. Uses RAM instead of disk.
 
 [![asciicast](https://asciinema.org/a/650733.svg)](https://asciinema.org/a/650733)
+
+
 
 ## Examples
 
